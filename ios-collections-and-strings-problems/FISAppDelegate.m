@@ -7,6 +7,7 @@
 //
 
 #import "FISAppDelegate.h"
+#import "FISStringMod.h"
 
 @interface FISAppDelegate ()
 
@@ -17,6 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    FISStringMod *stringModifier = [[FISStringMod alloc] init];
+    
+    [stringModifier frameStringsWithArray:@[@"Hello", @"World", @"in", @"a", @"frame"]];
+    NSString *pigLatin = [stringModifier englishToPigLatin:@"Hello world from The Flatiron School"];
+    NSString *english = [stringModifier pigLatinToEnglish:pigLatin];
+    NSArray *combinedArray = [stringModifier combineArray:@[@1, @2, @3,]
+                                              secondArray:@[@"A", @"B", @"C", @"D", @"E"]];
+    NSArray *arrayOfNumbers = [stringModifier numberToArray:@90708];
+    NSArray *reversedArray = [stringModifier reverseArray:@[@1, @2, @3, @4, @5]];
+    
+    NSLog(@"%@", pigLatin);
+    NSLog(@"%@", english);
+    NSLog(@"%@", combinedArray);
+    NSLog(@"%@", arrayOfNumbers);
+    NSLog(@"%@", reversedArray);
+        
     return YES;
 }
 
